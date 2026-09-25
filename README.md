@@ -61,7 +61,7 @@ Aqui estão algumas propriedades criadas no trabalho:
 - **MissingValues(Per)**: Percentual de valores ausentes em um DataSet_Data;
 - **size(MB)**: Tamanho do DM Informational Object em megabytes;
 
-##Restrições
+## Restrições
 
 As restrições estabelecem as regras que definem o comportamento esperado dos elementos na ontologia. Elas garantem consistência e especificam limites ou obrigatoriedades nos relacionamentos e valores. Elas são importantes para estabelecer limites na forma em que o usuário vai gerenciar o processo, seguindo a lógica KDD.
 Aqui estão algumas restrições criadas no trabalho:
@@ -77,20 +77,20 @@ Aqui estão algumas restrições criadas no trabalho:
 - **DM_Process → isAntecedentTo max 1 DM_Process**: Restringe que um processo seja antecedente de no máximo um outro processo.
 - **DM_Process → isSequenceTo max 1 DM_Process**: Restringe que um processo seja sequencial a no máximo um outro processo.
 
-##Regras de Inferência
+## Regras de Inferência
 
 As regras de inferência permitem criar novos conhecimentos com base nos elementos já definidos na ontologia. Utilizando a Semantic Web Rule Language (SWRL), é possível estabelecer um conjunto de regras para automaticamente atribuir uma classe mais específica a um indivíduo baseado em suas propriedades e relacionamentos
 Liste as regras SWRL apresentadas para validar as relações:
 
-- **Regra 9: DataMining_Task(?x) ^ specifiesAlgorithm(?x, ?a) ^ hasOutput(?a, ?m) ^ DM_Model(?m) -> Modelling_task(?x);
+- **Regra 9**: DataMining_Task(?x) ^ specifiesAlgorithm(?x, ?a) ^ hasOutput(?a, ?m) ^ DM_Model(?m) -> Modelling_task(?x);
 
 Descrição: Se uma DataMining_Task especifica um algoritmo que tem como Output um DM_Model, então essa task é uma Modelling_task.
 
-- **Regra 11: Modelling_task(?x) ^ specifiesAlgorithm(?x, ?a) ^ targetedColumn(?a, ?m) -> SupervisedLearning_Task(?x);
+- **Regra 11**: Modelling_task(?x) ^ specifiesAlgorithm(?x, ?a) ^ targetedColumn(?a, ?m) -> SupervisedLearning_Task(?x);
 
 Descrição: Se uma Modelling_task especifica um algoritmo que tem uma Coluna alvo, então essa task é uma SupervisedLearning_Task.
 
-- **Regra 11: SupervisedLearning_Task(?x) ^ specifiesAlgorithm(?x, ?a) ^ targetedColumn(?a, ?m) ^ datatype(?m, "enum"^^rdf:PlainLiteral) -> Classification_Task(?x);
+- **Regra 11**: SupervisedLearning_Task(?x) ^ specifiesAlgorithm(?x, ?a) ^ targetedColumn(?a, ?m) ^ datatype(?m, "enum"^^rdf:PlainLiteral) -> Classification_Task(?x);
 
 Descrição: Se uma SupervisedLearning_Task especifica um algoritmo que tem uma Coluna alvo com datatype igual a “enum”, então essa task é uma Classification_Task.
 
